@@ -6,6 +6,7 @@ import Product from "../pages/Product.vue";
 const routes = [
   { path: "/about", component: About },
   { path: "/", component: Home },
+  { path: "/login", component: Login },
   { path: "/product", component: Product },
 ];
 
