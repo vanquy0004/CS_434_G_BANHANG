@@ -1,0 +1,92 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #0f2c2e;
+}
+
+.login-card {
+  display: flex;
+  width: 800px;
+  height: 450px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+/* Bên trái: ảnh */
+.login-image {
+  flex: 1;
+  background: url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e")
+    no-repeat center center/cover;
+}
+
+/* Bên phải: form */
+.login-form {
+  flex: 1;
+  background: #f5b800;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login-form h2 {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  font-size: 14px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.login-form label {
+  font-size: 14px;
+  margin-bottom: 5px;
+  font-weight: bold;
+  display: block;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+}
+
+.password-wrapper {
+  position: relative;
+}
+
+.password-wrapper input {
+  padding-right: 35px;
+}
+
+.password-wrapper .toggle {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.login-form button {
+  background: #004d4d;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.login-form button:hover {
+  background: #003636;
+}
