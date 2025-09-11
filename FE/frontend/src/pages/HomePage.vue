@@ -139,7 +139,7 @@
         <div class="footer-col">
           <h3>LEGO Store</h3>
           <p>Khám phá thế giới LEGO đầy sáng tạo và màu sắc.</p>
-          <p>📍 123 Đường Gạch, TP. Hồ Chí Minh</p>
+          <p>📍 123 Đường Gạch, TP. Đà Nẵng</p>
           <p>📞 0123 456 789</p>
           <p>✉️ lego@store.com</p>
         </div>
