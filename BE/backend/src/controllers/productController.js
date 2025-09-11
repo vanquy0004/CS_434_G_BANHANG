@@ -46,9 +46,47 @@ const createProduct = async (req, res) => {
     res.status(500).json({ error: "Server error" });
   }
 };
+// Cập nhật sản phẩm
+const updateProduct = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { name, description, price, stock, category_id } = req.body;
+    const updatedProduct = await productService.updateProduct(
+      id,
+      name,
+      description,
+      price,
+      stock,
+      category_id
+    );
+    if (!updatedProduct) {
+      return res.status(404).json({ message: "Không tìm thấy sản phẩm" });
+    }
+    res.json(updatedProduct);
+  } catch (err) {
+    console.error("❌ Lỗi khi cập nhật sản phẩm:", err.message);
+    res.status(500).json({ error: "Server error" });
+  }
+}
+// Xoá sản phẩm
+const deleteProduct = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deletedProduct = await productService.deleteProduct(id);
+    if (!deletedProduct) {
+      return res.status(404).json({ message: "Không tìm thấy sản phẩm" });
+    }
+    res.json({ message: "Xóa thành công", product: deletedProduct });
+  } catch (err) {
+    console.error("❌ Lỗi khi xoá sản phẩm:", err.message);
+    res.status(500).json({ error: "Server error" });
+  }
+}
 
 export default {
   getAllProducts,
   getProductById,
   createProduct,
+  updateProduct,
+  deleteProduct
 };
