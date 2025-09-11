@@ -1,20 +1,12 @@
-import express from 'express';
-import morgan from 'morgan';
-import routes from './routes/index.js';
-
+import express from "express";
 const app = express();
 
-// Middleware
 app.use(express.json());
-app.use(morgan('dev'));
 
-// Routes
-app.use('/api', routes);
+// Import routes
+import productRoutes from "./routes/productRoutes.js";
 
-// Error handler
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).json({ message: 'Something went wrong!' });
-});
+// Sử dụng routes
+app.use("/products", productRoutes);
 
 export default app;
