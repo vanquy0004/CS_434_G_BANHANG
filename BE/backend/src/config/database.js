@@ -8,7 +8,7 @@ const pool = new Pool({
 });
 
 pool.connect()
-  .then(() => console.log("Kết nối thành công đến PostgreSQL"))
-  .catch((err) => console.error("Kết nối thất bại!", err.stack));
+  .then(() => console.log("Kết nối thành công đến cơ sở dữ liệu PostgreSQL rồi nha!"))
+  .catch((err) => console.error("Kết nối thất bại rồi phải tìm lỗi thôi :(", err.stack));
 
 export default pool;
