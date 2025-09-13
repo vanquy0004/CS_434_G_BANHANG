@@ -1,28 +1,6 @@
 <template>
   <div id="app">
-    <!-- Navbar -->
-    <header class="navbar">
-      <div class="navbar-left">
-        <img class="ms-3" src="https://assets.lego.com/logos/v4.5.0/brand-lego.svg" alt="LEGO" width="55" height="55">
-        <div class="logo1">LEGO STORE</div>
-      </div>
-      <nav class="navbar-center">
-        <ul>
-          <li><a href="#"><i class="fas fa-home"></i> Trang chủ</a></li>
-          <li><a href="#"><i class="fas fa-box-open"></i> Sản phẩm</a></li>
-          <li><a href="#"><i class="fas fa-tags"></i> Khuyến mãi</a></li>
-          <li><a href="#"><i class="fas fa-envelope"></i> Liên hệ</a></li>
-        </ul>
-      </nav>
-
-      <div class="navbar-right">
-        <div class="search-box">
-          <i class="fas fa-search"></i>
-          <input class="search-input" type="text" placeholder="Tìm kiếm..." />
-        </div>
-        <div class="cart">🛒 Giỏ hàng</div>
-      </div>
-    </header>
+    <Header />
 
     <!-- Carousel -->
     <div id="carouselExampleIndicators" class="carousel slide">
@@ -91,198 +69,223 @@
       </button>
     </div>
 
-    <!-- Banner -->
-    <section class="banner">
-      <h1>Khám phá thế giới LEGO</h1>
-      <p>Xây dựng sáng tạo, thỏa sức tưởng tượng!</p>
-      <button class="btn-custom">Mua ngay</button>
+    <!-- Category Banner -->
+    <section class="category-banner">
+      <div class="tabs">
+        <button class="tab" :class="{ active: activeTab === 'trending' }" @click="activeTab = 'trending'">Trending</button>
+        <button class="tab" :class="{ active: activeTab === 'themes' }" @click="activeTab = 'themes'">Themes</button>
+        <button class="tab" :class="{ active: activeTab === 'age' }" @click="activeTab = 'age'">Age</button>
+      </div>
+      <div class="horizontal-scroll">
+        <div class="category-card" v-for="category in categories[activeTab]" :key="category.id">
+          <img :src="category.image" :alt="category.title" />
+          <div class="card-title">{{ category.title }}</div>
+        </div>
+      </div>
     </section>
 
     <!-- Danh sách sản phẩm -->
     <section class="products">
       <h2>Sản phẩm nổi bật</h2>
-      <div class="product-list">
-        <div class="product-card">
-          <img
-            src="https://www.lego.com/cdn/cs/set/assets/blt7d8c39b23e6c2e0b/21336.png"
-            alt="LEGO 1"
-          />
-          <h3>LEGO Bộ Thành Phố</h3>
-          <p>1,200,000đ</p>
-          <button class="btn-custom">Thêm vào giỏ</button>
+      <div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#productCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#productCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
         </div>
-        <div class="product-card">
-          <img
-            src="https://www.lego.com/cdn/cs/set/assets/bltf0679ec75a4c8d4b/10302.png"
-            alt="LEGO 2"
-          />
-          <h3>LEGO Xe Cổ Điển</h3>
-          <p>2,300,000đ</p>
-          <button class="btn-custom">Thêm vào giỏ</button>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="product-list">
+              <div class="product-card">
+                <img
+                  src="https://www.lego.com/cdn/cs/set/assets/blt7d8c39b23e6c2e0b/21336.png"
+                  alt="LEGO 1"
+                />
+                <h3>LEGO Bộ Thành Phố</h3>
+                <p>1,200,000đ</p>
+                <button class="btn-custom">Thêm vào giỏ</button>
+              </div>
+              <div class="product-card">
+                <img
+                  src="https://www.lego.com/cdn/cs/set/assets/bltf0679ec75a4c8d4b/10302.png"
+                  alt="LEGO 2"
+                />
+                <h3>LEGO Xe Cổ Điển</h3>
+                <p>2,300,000đ</p>
+                <button class="btn-custom">Thêm vào giỏ</button>
+              </div>
+              <div class="product-card">
+                <img
+                  src="https://www.lego.com/cdn/cs/set/assets/bltad9e48e0c10fc9c0/75341.png"
+                  alt="LEGO 3"
+                />
+                <h3>LEGO Star Wars</h3>
+                <p>3,500,000đ</p>
+                <button class="btn-custom">Thêm vào giỏ</button>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="product-list">
+              <div class="product-card">
+                <img
+                  src="https://www.lego.com/cdn/cs/set/assets/bltad9e48e0c10fc9c0/75341.png"
+                  alt="LEGO 3"
+                />
+                <h3>LEGO Star Wars</h3>
+                <p>3,500,000đ</p>
+                <button class="btn-custom">Thêm vào giỏ</button>
+              </div>
+              <div class="product-card">
+                <img
+                  src="https://www.lego.com/cdn/cs/set/assets/bltad9e48e0c10fc9c0/75341.png"
+                  alt="LEGO 3"
+                />
+                <h3>LEGO Star Wars</h3>
+                <p>3,500,000đ</p>
+                <button class="btn-custom">Thêm vào giỏ</button>
+              </div>
+              <div class="product-card">
+                <img
+                  src="https://www.lego.com/cdn/cs/set/assets/bltad9e48e0c10fc9c0/75341.png"
+                  alt="LEGO 3"
+                />
+                <h3>LEGO Star Wars</h3>
+                <p>3,500,000đ</p>
+                <button class="btn-custom">Thêm vào giỏ</button>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="product-card">
-          <img
-            src="https://www.lego.com/cdn/cs/set/assets/bltad9e48e0c10fc9c0/75341.png"
-            alt="LEGO 3"
-          />
-          <h3>LEGO Star Wars</h3>
-          <p>3,500,000đ</p>
-          <button class="btn-custom">Thêm vào giỏ</button>
-        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
       </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-      <div class="footer-container">
-        <!-- Thông tin cửa hàng -->
-        <div class="footer-col">
-          <h3>LEGO Store</h3>
-          <p>Khám phá thế giới LEGO đầy sáng tạo và màu sắc.</p>
-          <p>📍 123 Đường Gạch, TP. Đà Nẵng</p>
-          <p>📞 0123 456 789</p>
-          <p>✉️ lego@store.com</p>
-        </div>
-
-        <!-- Hỗ trợ -->
-        <div class="footer-col">
-          <h3>Hỗ trợ khách hàng</h3>
-          <ul>
-            <li><a href="#">Hướng dẫn mua hàng</a></li>
-            <li><a href="#">Chính sách đổi trả</a></li>
-            <li><a href="#">Câu hỏi thường gặp</a></li>
-            <li><a href="#">Liên hệ hỗ trợ</a></li>
-          </ul>
-        </div>
-
-        <!-- Chính sách -->
-        <div class="footer-col">
-          <h3>Chính sách</h3>
-          <ul>
-            <li><a href="#">Chính sách bảo mật</a></li>
-            <li><a href="#">Chính sách vận chuyển</a></li>
-            <li><a href="#">Điều khoản dịch vụ</a></li>
-          </ul>
-        </div>
-
-        <!-- Mạng xã hội -->
-        <div class="footer-col">
-          <h3>Kết nối</h3>
-          <div class="social-icons">
-            <a href="#">🌐 Facebook</a>
-            <a href="#">📷 Instagram</a>
-            <a href="#">🎥 YouTube</a>
-            <a href="#">🐦 Twitter</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <p>© 2025 LEGO Store | All rights reserved.</p>
-      </div>
-    </footer>
+    <Footer />
   </div>
 </template>
 
 <script>
+import Header from "../components/Header.vue";
+import Footer from "../components/Footer.vue";
+
 export default {
   name: "App",
+  components: {
+    Header,
+    Footer,
+  },
+  data() {
+    return {
+      activeTab: "trending",
+      categories: {
+        trending: [
+          {
+            id: 1,
+            title: "New",
+            image: "/src/assets/images/category-new.jpg",
+          },
+          {
+            id: 2,
+            title: "Exclusives",
+            image: "/src/assets/images/category-exclusives.jpg",
+          },
+          {
+            id: 3,
+            title: "Offers",
+            image: "/src/assets/images/category-offers.jpg",
+          },
+          {
+            id: 4,
+            title: "All sets",
+            image: "/src/assets/images/category-allsets.jpg",
+          },
+          {
+            id: 5,
+            title: "18+",
+            image: "/src/assets/images/category-18plus.jpg",
+          },
+    {
+            id: 6,
+            title: "Gaming",
+            image: "/src/assets/images/category-gaming.jpg",
+          },
+          {
+            id: 7,
+            title: "Custom Minifigures",
+            image: "/src/assets/images/category-custom-minifigures.jpg",
+          },
+          {
+            id: 8,
+            title: "Unlock Rewards",
+            image: "/src/assets/images/category-unlock-rewards.jpg",
+          },
+        ],
+        themes: [
+                   {
+            id: 6,
+            title: "Gaming",
+            image: "/src/assets/images/category-gaming.jpg",
+          },
+          {
+            id: 7,
+            title: "Custom Minifigures",
+            image: "/src/assets/images/category-custom-minifigures.jpg",
+          },
+          {
+            id: 8,
+            title: "Unlock Rewards",
+            image: "/src/assets/images/category-unlock-rewards.jpg",
+          },
+        ],
+        age: [
+                 {
+            id: 1,
+            title: "New",
+            image: "/src/assets/images/category-new.jpg",
+          },
+          {
+            id: 2,
+            title: "Exclusives",
+            image: "/src/assets/images/category-exclusives.jpg",
+          },
+          {
+            id: 3,
+            title: "Offers",
+            image: "/src/assets/images/category-offers.jpg",
+          },
+          {
+            id: 4,
+            title: "All sets",
+            image: "/src/assets/images/category-allsets.jpg",
+          },
+          {
+            id: 5,
+            title: "18+",
+            image: "/src/assets/images/category-18plus.jpg",
+          },
+        ],
+      },
+    };
+  },
 };
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Libertinus+Keyboard&family=Quicksand:wght@300..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
 /* giữ nguyên CSS của bạn */
 * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-   font-family: "Quicksand", sans-serif;
-    }
-
-    /* Navbar */
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: #ffcc00;
-      padding: 10px 30px;
-      
-    }
-
-    /* Bên trái */
-    .navbar-left {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: bold;
-      font-size: 20px;
-      background-color: #ffcc00;
-    }
-
-    /* Menu giữa */
-    .navbar-center ul {
-      display: flex;
-      list-style: none;
-      gap: 25px;
-      margin: 0;
-      padding: 0;
-    }
-
-    .navbar-center a {
-      text-decoration: none;
-      font-weight: 600;
-      color: #333;
-      transition: 0.2s;
-    }
-
-    .navbar-center a:hover {
-      color: #e60000;
-    }
-
-    /* Bên phải */
-    .navbar-right {
-      display: flex;
-      align-items: center;
-      gap: 90px;
-    }
-
-    .search-box {
-      position: relative;
-    }
-     .search-input {
-      width: 350px;
-      transition: width 0.4s ease-in-out;}
-    .search-box input {
-      padding: 6px 10px 6px 30px;
-      border-radius: 20px;
-      border: 1px solid #ccc;
-      outline: none;
-    }
-  .logo1 {
-      font-size: 20px;
-      font-weight:800;
-      color: #333;
-      text-align: center;
-      cursor: pointer;
-      width: 400px;
-      font-family: 'Libertinus Keyboard', serif;
-      letter-spacing: 2px;
-      max-width: min-content;
-     
-    }
-    .search-box i {
-      position: absolute;
-      left: 10px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: #666;
-    }
-    .cart {
-      font-weight: bold;
-      cursor: pointer;
-    }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Quicksand", sans-serif;
+}
 
     /* Banner */
     .banner {
@@ -331,7 +334,7 @@ export default {
       display: flex;
       justify-content: center;
       gap: 20px;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
     }
 
     .product-card {
@@ -339,7 +342,8 @@ export default {
       padding: 20px;
       border-radius: 15px;
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-      width: 250px;
+      width: 350px;
+      height: max-content;
       transition: transform 0.3s;
     }
 
@@ -364,78 +368,130 @@ export default {
       margin-bottom: 15px;
       color: #666;
     }
-
-    /* Footer */
-    .footer {
-      background: #222;
-      color: #fff;
-      padding: 50px 20px 20px;
-      margin-top: 40px;
-    }
-
-    .footer-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 30px;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    .footer-col h3 {
-      margin-bottom: 15px;
-      font-size: 18px;
-      color: #ffcc00;
-    }
-
-    .footer-col p {
-      font-size: 14px;
-      margin-bottom: 8px;
-      color: #ddd;
-    }
-
-    .footer-col ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .footer-col ul li {
-      margin-bottom: 8px;
-    }
-
-    .footer-col ul li a {
-      color: #ccc;
-      text-decoration: none;
-      font-size: 14px;
-      transition: 0.3s;
-    }
-
-    .footer-col ul li a:hover {
-      color: #ffcc00;
-    }
-
-    .social-icons a {
-      display: block;
-      margin-bottom: 8px;
-      color: #ccc;
-      text-decoration: none;
-      font-size: 14px;
-      transition: 0.3s;
-    }
-
-    .social-icons a:hover {
-      color: #ffcc00;
-    }
-
-    .footer-bottom {
-      text-align: center;
-      padding-top: 20px;
-      border-top: 1px solid #444;
-      margin-top: 30px;
-      font-size: 14px;
-      color: #aaa;
-    }
 @import "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css";
 @import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css";
 
-/* copy toàn bộ CSS từ file HTML vào đây */
+.category-banner {
+  background-color: #1a1a1a;
+  padding: 10px 0;
+  color: white;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 15px;
+}
+
+.tab {
+  background: none;
+  border: none;
+  color: white;
+  font-weight: 500;
+  font-size: 1.1rem;
+  padding: 8px 15px;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.3s;
+}
+
+.tab.active {
+  font-weight: 700;
+  color: #00aaff;
+}
+
+.tab.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 15%;
+  width: 70%;
+  height: 3px;
+  background-color: #00aaff;
+  border-radius: 2px;
+}
+
+.horizontal-scroll {
+  display: flex;
+  overflow-x: auto;
+  gap: 15px;
+  padding: 10px 20px;
+  scroll-behavior: smooth;
+}
+
+.horizontal-scroll::-webkit-scrollbar {
+  height: 8px;
+}
+
+.horizontal-scroll::-webkit-scrollbar-thumb {
+  background-color: #00aaff;
+  border-radius: 4px;
+}
+
+.category-card {
+  flex: 0 0 auto;
+  width: 200px;
+  height: 250px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-align: center;
+  padding: 10px;
+  background: #ffffff;
+}
+
+.category-card img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.6);
+  z-index: 0;
+}
+
+.category-card .card-title {
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 0 5px rgba(0,0,0,0.7);
+}
+
+.category-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+
+/* Responsive */
+@media (min-width: 1024px) {
+  .horizontal-scroll {
+    gap: 20px;
+    padding: 10px 40px;
+  }
+  .category-card {
+    width: 180px;
+    height: 240px;
+  }
+}
+
+@media (max-width: 600px) {
+  .horizontal-scroll {
+    gap: 10px;
+    padding: 10px 10px;
+  }
+  .category-card {
+    width: 120px;
+    height: 180px;
+    font-size: 1rem;
+  }
+}
 </style>
