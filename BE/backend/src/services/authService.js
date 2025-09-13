@@ -1,5 +1,5 @@
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
+import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
 
 const SECRET_KEY = "mysecretkey";
 
@@ -8,7 +8,7 @@ const users = [
   { id: 1, email: "user@gmail.com", password: bcrypt.hashSync("123456", 10) }
 ];
 
-exports.login = async (email, password) => {
+export const login = async (email, password) => {
   const user = users.find(u => u.email === email);
   if (!user) throw new Error("Email không tồn tại");
 

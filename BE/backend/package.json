@@ -21,6 +21,7 @@
     "bcryptjs": "^3.0.2",
     "body-parser": "^2.2.0",
     "bootstrap": "^5.3.8",
+    "cors": "^2.8.5",
     "express": "^5.1.0",
     "jsonwebtoken": "^9.0.2",
     "pg": "^8.16.3"
