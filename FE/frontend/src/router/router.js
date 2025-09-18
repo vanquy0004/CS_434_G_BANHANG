@@ -4,13 +4,14 @@ import About from "../pages/AboutPage.vue";
 import Login from "../pages/LoginPage.vue";
 import Product from "../pages/ProductPage.vue";
 import Register from "../pages/styles/Register.vue";
-
+import AdminPage from "../pages/AdminPage.vue";
 const routes = [
   { path: "/about", component: About },
   { path: "/", component: Home },
   { path: "/login", component:Login  },
   { path: "/product", component: Product },
   { path: "/register", component: Register },
+   { path: "/admin", component: AdminPage },
 ];
 
 const router = createRouter({

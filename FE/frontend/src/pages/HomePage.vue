@@ -27,65 +27,34 @@
     <!-- Carousel -->
     <div id="carouselExampleIndicators" class="carousel slide">
       <div class="carousel-indicators">
-        <button
-          type="button"
-          data-bs-target="#carouselExampleIndicators"
-          data-bs-slide-to="0"
-          class="active"
-          aria-current="true"
-          aria-label="Slide 1"
-        ></button>
-        <button
-          type="button"
-          data-bs-target="#carouselExampleIndicators"
-          data-bs-slide-to="1"
-          aria-label="Slide 2"
-        ></button>
-        <button
-          type="button"
-          data-bs-target="#carouselExampleIndicators"
-          data-bs-slide-to="2"
-          aria-label="Slide 3"
-        ></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+          aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+          aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+          aria-label="Slide 3"></button>
       </div>
       <div style="height: 530px" class="carousel-inner">
         <div class="carousel-item active">
-          <img
-            src="https://zusammengebaut.com/wp-content/uploads/2022/08/brick-tales-2022.jpg"
-            class="d-block w-100"
-            alt="..."
-          />
+          <img src="https://zusammengebaut.com/wp-content/uploads/2022/08/brick-tales-2022.jpg" class="d-block w-100"
+            alt="..." />
         </div>
         <div class="carousel-item">
-          <img
-            src="https://i.ytimg.com/vi/ZKDardFql_c/maxresdefault.jpg"
-            class="d-block w-100"
-            alt="..."
-          />
+          <img src="https://i.ytimg.com/vi/ZKDardFql_c/maxresdefault.jpg" class="d-block w-100" alt="..." />
         </div>
         <div class="carousel-item">
           <img
             src="https://assets.nintendo.com/image/upload/q_auto/f_auto/ncom/software/switch/70010000052111/63a452f1d53d141207afe195f21a064f51e96559ed1406df743582308c515870"
-            class="d-block w-100"
-            alt="..."
-          />
+            class="d-block w-100" alt="..." />
         </div>
       </div>
-      <button
-        class="carousel-control-prev"
-        type="button"
-        data-bs-target="#carouselExampleIndicators"
-        data-bs-slide="prev"
-      >
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
       </button>
-      <button
-        class="carousel-control-next"
-        type="button"
-        data-bs-target="#carouselExampleIndicators"
-        data-bs-slide="next"
-      >
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
       </button>
@@ -103,28 +72,19 @@
       <h2>Sản phẩm nổi bật</h2>
       <div class="product-list">
         <div class="product-card">
-          <img
-            src="https://www.lego.com/cdn/cs/set/assets/blt7d8c39b23e6c2e0b/21336.png"
-            alt="LEGO 1"
-          />
+          <img src="https://www.lego.com/cdn/cs/set/assets/blt7d8c39b23e6c2e0b/21336.png" alt="LEGO 1" />
           <h3>LEGO Bộ Thành Phố</h3>
           <p>1,200,000đ</p>
           <button class="btn-custom">Thêm vào giỏ</button>
         </div>
         <div class="product-card">
-          <img
-            src="https://www.lego.com/cdn/cs/set/assets/bltf0679ec75a4c8d4b/10302.png"
-            alt="LEGO 2"
-          />
+          <img src="https://www.lego.com/cdn/cs/set/assets/bltf0679ec75a4c8d4b/10302.png" alt="LEGO 2" />
           <h3>LEGO Xe Cổ Điển</h3>
           <p>2,300,000đ</p>
           <button class="btn-custom">Thêm vào giỏ</button>
         </div>
         <div class="product-card">
-          <img
-            src="https://www.lego.com/cdn/cs/set/assets/bltad9e48e0c10fc9c0/75341.png"
-            alt="LEGO 3"
-          />
+          <img src="https://www.lego.com/cdn/cs/set/assets/bltad9e48e0c10fc9c0/75341.png" alt="LEGO 3" />
           <h3>LEGO Star Wars</h3>
           <p>3,500,000đ</p>
           <button class="btn-custom">Thêm vào giỏ</button>
@@ -193,247 +153,255 @@ export default {
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Libertinus+Keyboard&family=Quicksand:wght@300..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
 /* giữ nguyên CSS của bạn */
 * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-   font-family: "Quicksand", sans-serif;
-    }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Quicksand", sans-serif;
+}
 
-    /* Navbar */
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: #ffcc00;
-      padding: 10px 30px;
-      
-    }
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffcc00;
+  padding: 10px 30px;
 
-    /* Bên trái */
-    .navbar-left {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: bold;
-      font-size: 20px;
-      background-color: #ffcc00;
-    }
+}
 
-    /* Menu giữa */
-    .navbar-center ul {
-      display: flex;
-      list-style: none;
-      gap: 25px;
-      margin: 0;
-      padding: 0;
-    }
+/* Bên trái */
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: bold;
+  font-size: 20px;
+  background-color: #ffcc00;
+}
 
-    .navbar-center a {
-      text-decoration: none;
-      font-weight: 600;
-      color: #333;
-      transition: 0.2s;
-    }
+/* Menu giữa */
+.navbar-center ul {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+}
 
-    .navbar-center a:hover {
-      color: #e60000;
-    }
+.navbar-center a {
+  text-decoration: none;
+  font-weight: 600;
+  color: #333;
+  transition: 0.2s;
+}
 
-    /* Bên phải */
-    .navbar-right {
-      display: flex;
-      align-items: center;
-      gap: 90px;
-    }
+.navbar-center a:hover {
+  color: #e60000;
+}
 
-    .search-box {
-      position: relative;
-    }
-     .search-input {
-      width: 350px;
-      transition: width 0.4s ease-in-out;}
-    .search-box input {
-      padding: 6px 10px 6px 30px;
-      border-radius: 20px;
-      border: 1px solid #ccc;
-      outline: none;
-    }
-  .logo1 {
-      font-size: 20px;
-      font-weight:800;
-      color: #333;
-      text-align: center;
-      cursor: pointer;
-      width: 400px;
-      font-family: 'Libertinus Keyboard', serif;
-      letter-spacing: 2px;
-      max-width: min-content;
-     
-    }
-    .search-box i {
-      position: absolute;
-      left: 10px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: #666;
-    }
-    .cart {
-      font-weight: bold;
-      cursor: pointer;
-    }
+/* Bên phải */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 90px;
+}
 
-    /* Banner */
-    .banner {
-      text-align: center;
-      padding: 80px 20px;
-      background: linear-gradient(135deg, #667eea, #764ba2);
-      color: #fff;
-    }
+.search-box {
+  position: relative;
+}
 
-    .banner h1 {
-      font-size: 40px;
-      margin-bottom: 15px;
-    }
+.search-input {
+  width: 350px;
+  transition: width 0.4s ease-in-out;
+}
 
-    .banner p {
-      font-size: 18px;
-      margin-bottom: 25px;
-    }
+.search-box input {
+  padding: 6px 10px 6px 30px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  outline: none;
+}
 
-    .btn-custom {
-      padding: 12px 25px;
-      background: #ffcc00;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: 0.3s;
-    }
+.logo1 {
+  font-size: 20px;
+  font-weight: 800;
+  color: #333;
+  text-align: center;
+  cursor: pointer;
+  width: 400px;
+  font-family: 'Libertinus Keyboard', serif;
+  letter-spacing: 2px;
+  max-width: min-content;
 
-    .btn-custom:hover {
-      background: #e6b800;
-    }
+}
 
-    /* Products */
-    .products {
-      padding: 50px;
-      text-align: center;
-    }
+.search-box i {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #666;
+}
 
-    .products h2 {
-      margin-bottom: 30px;
-      font-size: 28px;
-    }
+.cart {
+  font-weight: bold;
+  cursor: pointer;
+}
 
-    .product-list {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
+/* Banner */
+.banner {
+  text-align: center;
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #fff;
+}
 
-    .product-card {
-      background: #fff;
-      padding: 20px;
-      border-radius: 15px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-      width: 250px;
-      transition: transform 0.3s;
-    }
+.banner h1 {
+  font-size: 40px;
+  margin-bottom: 15px;
+}
 
-    .product-card:hover {
-      transform: translateY(-8px);
-    }
+.banner p {
+  font-size: 18px;
+  margin-bottom: 25px;
+}
 
-    .product-card img {
-      width: 100%;
-      border-radius: 10px;
-      margin-bottom: 15px;
-    }
+.btn-custom {
+  padding: 12px 25px;
+  background: #ffcc00;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
 
-    .product-card h3 {
-      font-size: 18px;
-      margin-bottom: 10px;
-      color: #333;
-    }
+.btn-custom:hover {
+  background: #e6b800;
+}
 
-    .product-card p {
-      font-size: 16px;
-      margin-bottom: 15px;
-      color: #666;
-    }
+/* Products */
+.products {
+  padding: 50px;
+  text-align: center;
+}
 
-    /* Footer */
-    .footer {
-      background: #222;
-      color: #fff;
-      padding: 50px 20px 20px;
-      margin-top: 40px;
-    }
+.products h2 {
+  margin-bottom: 30px;
+  font-size: 28px;
+}
 
-    .footer-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 30px;
-      max-width: 1200px;
-      margin: auto;
-    }
+.product-list {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
 
-    .footer-col h3 {
-      margin-bottom: 15px;
-      font-size: 18px;
-      color: #ffcc00;
-    }
+.product-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  width: 250px;
+  transition: transform 0.3s;
+}
 
-    .footer-col p {
-      font-size: 14px;
-      margin-bottom: 8px;
-      color: #ddd;
-    }
+.product-card:hover {
+  transform: translateY(-8px);
+}
 
-    .footer-col ul {
-      list-style: none;
-      padding: 0;
-    }
+.product-card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
 
-    .footer-col ul li {
-      margin-bottom: 8px;
-    }
+.product-card h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #333;
+}
 
-    .footer-col ul li a {
-      color: #ccc;
-      text-decoration: none;
-      font-size: 14px;
-      transition: 0.3s;
-    }
+.product-card p {
+  font-size: 16px;
+  margin-bottom: 15px;
+  color: #666;
+}
 
-    .footer-col ul li a:hover {
-      color: #ffcc00;
-    }
+/* Footer */
+.footer {
+  background: #222;
+  color: #fff;
+  padding: 50px 20px 20px;
+  margin-top: 40px;
+}
 
-    .social-icons a {
-      display: block;
-      margin-bottom: 8px;
-      color: #ccc;
-      text-decoration: none;
-      font-size: 14px;
-      transition: 0.3s;
-    }
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
 
-    .social-icons a:hover {
-      color: #ffcc00;
-    }
+.footer-col h3 {
+  margin-bottom: 15px;
+  font-size: 18px;
+  color: #ffcc00;
+}
 
-    .footer-bottom {
-      text-align: center;
-      padding-top: 20px;
-      border-top: 1px solid #444;
-      margin-top: 30px;
-      font-size: 14px;
-      color: #aaa;
-    }
+.footer-col p {
+  font-size: 14px;
+  margin-bottom: 8px;
+  color: #ddd;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 8px;
+}
+
+.footer-col ul li a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.footer-col ul li a:hover {
+  color: #ffcc00;
+}
+
+.social-icons a {
+  display: block;
+  margin-bottom: 8px;
+  color: #ccc;
+  text-decoration: none;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.social-icons a:hover {
+  color: #ffcc00;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid #444;
+  margin-top: 30px;
+  font-size: 14px;
+  color: #aaa;
+}
+
 @import "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css";
 @import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css";
 
