@@ -3,13 +3,6 @@
     <Header />
     <section class="products container">
       <h2>Sản phẩm nổi bật</h2>
-      <div class="upload-section">
-        <h4>Upload Product Image</h4>
-        <input type="file" @change="handleFileSelect" accept="image/*" />
-        <input type="text" v-model="uploadProductId" placeholder="Product ID" />
-        <button @click="uploadImage" :disabled="!selectedFile || !uploadProductId">Upload</button>
-        <p v-if="uploadStatus">{{ uploadStatus }}</p>
-      </div>
       <div class="row">
         <div class="col-md-3 filter-section">
           <h4>Bộ lọc sản phẩm</h4>
@@ -51,7 +44,7 @@
       :key="product.id"
     >
       <div class="product-card">
-        <img :src="product.image" :alt="product.name" />
+        <img :src="product.img" :alt="product.name" />
         <h3>{{ product.name }}</h3>
         <p>{{ product.price.toLocaleString() }}đ</p>
         <button class="btn-custom">Thêm vào giỏ</button>
@@ -86,7 +79,6 @@ export default {
       loading: true,
       error: null,
       selectedFile: null,
-      uploadProductId: '',
       uploadStatus: '',
     };
   },
@@ -110,21 +102,16 @@ export default {
       this.uploadStatus = '';
     },
     async uploadImage() {
-      if (!this.selectedFile || !this.uploadProductId) {
-        this.uploadStatus = 'Please select a file and enter a product ID.';
+      if (!this.selectedFile) {
+        this.uploadStatus = 'Please select a file.';
         return;
       }
       this.uploadStatus = 'Uploading...';
       try {
-        const downloadURL = await uploadImage(this.selectedFile, this.uploadProductId);
+        const imageUrl = await uploadImage(this.selectedFile);
         this.uploadStatus = 'Upload successful!';
-        // Update the product image URL locally if product exists in list
-        const product = this.products.find(p => p.id === this.uploadProductId);
-        if (product) {
-          product.image = downloadURL;
-        }
+        console.log('Image uploaded:', imageUrl);
         this.selectedFile = null;
-        this.uploadProductId = '';
       } catch (error) {
         this.uploadStatus = 'Upload failed. See console for details.';
       }
@@ -163,52 +150,10 @@ export default {
   text-align: center;
 }
 
-.upload-section {
-  background: #f8f9fa;
-  padding: 20px;
-  border-radius: 10px;
-  margin-bottom: 30px;
-  text-align: center;
-}
-
-.upload-section h4 {
-  margin-bottom: 15px;
-}
-
-.upload-section input[type="file"] {
-  margin-right: 10px;
-}
-
-.upload-section input[type="text"] {
-  padding: 8px;
-  margin-right: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
-
-.upload-section button {
-  padding: 8px 15px;
-  background: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.upload-section button:disabled {
-  background: #ccc;
-  cursor: not-allowed;
-}
-
-.upload-section p {
-  margin-top: 10px;
-  font-weight: bold;
-}
-
-/* .row {
+.row {
   display: flex;
   gap: 20px;
-} */
+}
 
 .filter-section {
   background: #fff;
