@@ -1,4 +1,5 @@
 import pool from '../config/database.js';
+import bcrypt from 'bcryptjs';
 
 // Lấy tất cả người dùng
 const getAllUsers = async () => {
@@ -17,13 +18,14 @@ const getUserById = async (id)=> {
 
 // Thêm người dùng mới
 const createUser = async (name, email, password, role = "customer") => {
+  const hashedPassword = await bcrypt.hash(password, 10);
   const result = await pool.query(
     `
     INSERT INTO users (name, email, password, role)
     VALUES ($1, $2, $3, $4)
     RETURNING id, name, email, role, created_at
     `,
-    [name, email, password, role]
+    [name, email, hashedPassword, role]
   );
   return result.rows[0];
 };

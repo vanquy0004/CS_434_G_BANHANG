@@ -24,9 +24,10 @@ const getProductById = async (req, res) => {
   }
 };
 
+
 const createProduct = async (req, res) => {
   try {
-    const { name, description, price, stock, category_id } = req.body;
+    const { name, description, price, stock, img, category_id } = req.body;
 
     if (!name || !price) {
       return res.status(400).json({ message: "Tên và giá sản phẩm là bắt buộc" });
@@ -37,6 +38,7 @@ const createProduct = async (req, res) => {
       description,
       price,
       stock || 0,
+      img || null,
       category_id || null
     );
 
@@ -50,13 +52,14 @@ const createProduct = async (req, res) => {
 const updateProduct = async (req, res) => {
   try {
     const { id } = req.params;
-    const { name, description, price, stock, category_id } = req.body;
+    const { name, description, price, stock, img, category_id } = req.body;
     const updatedProduct = await productService.updateProduct(
       id,
       name,
       description,
       price,
       stock,
+      img,
       category_id
     );
     if (!updatedProduct) {
