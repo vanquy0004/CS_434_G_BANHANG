@@ -41,6 +41,7 @@ CREATE TABLE orders (
     user_id INT REFERENCES users(id) ON DELETE CASCADE,
     total_amount NUMERIC(10,2) NOT NULL,
     status VARCHAR(20) DEFAULT 'pending', -- pending, paid, shipped, cancelled
+    address TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
